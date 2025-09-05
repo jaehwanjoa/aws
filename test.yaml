@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vulnerable-pod
+spec:
+  containers:
+    - name: insecure-container
+      image: busybox:latest
+      command: ["sleep", "3600"]
+      securityContext:
+        privileged: true  # 취약점: 권한 상승 가능
+        runAsUser: 0      # 취약점: root 사용자로 실행
+      volumeMounts:
+        - name: host-volume
+          mountPath: /host
+  volumes:
+    - name: host-volume
+      hostPath:
+        path: /           # 취약점: 호스트 루트 디렉토리 마운트
+        type: Directory
