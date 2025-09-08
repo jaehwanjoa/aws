@@ -10,13 +10,13 @@
   "author": "Test User",
   "license": "MIT",
   "dependencies": {
-    "express": "3.0.0",
-    "lodash": "2.4.1",
-    "jquery": "1.8.3",
-    "debug": "2.6.8"
+    "express": "2.5.11",
+    "lodash": "1.0.0",
+    "jquery": "1.6.2",
+    "debug": "0.7.4"
   },
   "devDependencies": {
-    "grunt": "0.4.5",
-    "gulp": "3.9.1"
+    "grunt": "0.3.17",
+    "gulp": "0.1.5"
   }
 }
