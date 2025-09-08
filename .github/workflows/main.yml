@@ -1,11 +1,21 @@
-steps:
+name: Prisma Cloud SCA Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  prisma-scan:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Run Prisma Cloud 
-        id: prisma-cloud
+      - name: Run Prisma Cloud
         uses: bridgecrewio/checkov-action@master
-        env:
-          PRISMA_API_URL: https://api.sg.prismacloud.io
+        id: prisma-cloud
         with:
           api-key: ${{ secrets.BC_API_KEY }}
+        env:
+          PRISMA_API_URL: https://api.sg.prismacloud.io
