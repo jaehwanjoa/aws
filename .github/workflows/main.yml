@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Run Prisma Cloud
         id: prisma-cloud
         uses: bridgecrewio/checkov-action@master
         env:
-          PRISMA_API_URL: https://api.sg.prismacloud.io  # 지역 맞게 변경
+          PRISMA_API_URL: https://api.sg.prismacloud.io  
         with:
           api-key: ${{ secrets.BC_API_KEY }}
           use_enforcement_rules: true
